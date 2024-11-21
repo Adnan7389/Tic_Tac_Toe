@@ -31,7 +31,8 @@ const gameController = (() => {
     players = [createPlayer(player1Name, 'X'), createPlayer(player2Name, 'O')];
     currentPlayerIndex = 0;
     gameBoard.resetBoard();
-    gameOver = false
+    gameOver = false;
+    document.querySelector(".turn").textContent = `${players[currentPlayerIndex].name} turn`;
   };
 
   const playRound = (cellIndex) => {
@@ -39,16 +40,20 @@ const gameController = (() => {
 
     if (gameBoard.setCell(cellIndex, players[currentPlayerIndex].marker)) {
       if (checkWin()) {
+
         gameOver = true;
+        document.querySelector(".turn").textContent = '';
         return (`${players[currentPlayerIndex].name} wins!`);
 
       } else if (checkTie()) {
         gameOver = true;
+        document.querySelector(".turn").textContent = '';
         return ("It's a tie!");
 
       }
 
       currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
+      document.querySelector(".turn").textContent = `${players[currentPlayerIndex].name} turn`;
     }
 
     return "Continue";

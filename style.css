@@ -1,9 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
 #gameContainer {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
+  background-color: #e1d0f0;
 }
 
 #game-board {
@@ -17,6 +29,27 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 0 1px;
-  font-size: 24px;
+  font-size: 2.4rem;
   cursor: pointer;
+}
+
+#result,
+.turn {
+  font-size: 2.4rem;
+}
+
+.playerContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+input,
+#start-game {
+  padding: 0.4rem;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+}
+
+input {
+  max-width: 12rem;
 }
